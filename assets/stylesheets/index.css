@@ -47,14 +47,18 @@ table {
 }
 
 .header{
+    display: -ms-grid;
     display: grid;
     width: calc(100%-20px);
     margin: 10px;
     margin-top: 5px;
     grid-gap: 20px;
+    -ms-grid-columns: auto 20px auto 20px auto 20px 1fr 20px auto;
     grid-template-columns: repeat(3,auto) 1fr repeat(1,auto);
     justify-items: center;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     text-transform: uppercase;
 }
 
@@ -65,7 +69,7 @@ table {
 
 .icon{
     height: 16px;
-    widows: 16px;
+    width: 16px;
 }
 
 .category{
@@ -87,8 +91,10 @@ table {
 .content{
     padding-top: 30px;
     border-top: 0.5px solid lightgrey;
+    display: -ms-grid;
     display: grid;
     grid-gap: 30px 0px;
+    -ms-grid-columns: 1.2fr 0px 2fr 0px 4.6fr 0px 2fr 0px 1.2fr;
     grid-template-columns: 1.2fr 2fr 4.6fr 2fr 1.2fr;
     height: 500px;
     width: 100%;
@@ -103,14 +109,16 @@ table {
 }
 
 .content figure{
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 3;
     grid-column: 2/5;
     display: block;
 }
 
 .content figure img{
     max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 figure p{
@@ -138,9 +146,13 @@ figure p{
 }
 
 .tiny-icon-continer{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr auto;
     grid-template-columns: 1fr auto;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 article{
@@ -151,13 +163,19 @@ article{
 }
 
 .pick{
+    -ms-grid-column:  4;
+    -ms-grid-column-span:  1;
     grid-column:  4/5;
     align-self: flex-end;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 5px 2fr;
     grid-template-columns: 1fr 2fr;
     grid-gap: 13px 5px;
     margin-left: 25px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     font-size: 14px;
     line-height: 17px;
 }
@@ -170,18 +188,62 @@ article{
 .pick img{
     max-width: 100%;
     max-height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .theory-container{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 180px 10px 180px 10px 180px 10px 180px;
     grid-template-columns: repeat(4,180px);
+    -ms-grid-rows: 1fr 10px 1fr;
     grid-template-rows: repeat(2,1fr);
     background-image: url("../img/inflation-720.png");
     background-size: cover;
     height: 648px;
     width: 100%;
     grid-gap: 10px;
+}
+
+.theory-container > *:nth-child(1){
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
+}
+
+.theory-container > *:nth-child(2){
+	-ms-grid-row: 1;
+	-ms-grid-column: 3;
+}
+
+.theory-container > *:nth-child(3){
+	-ms-grid-row: 1;
+	-ms-grid-column: 5;
+}
+
+.theory-container > *:nth-child(4){
+	-ms-grid-row: 1;
+	-ms-grid-column: 7;
+}
+
+.theory-container > *:nth-child(5){
+	-ms-grid-row: 3;
+	-ms-grid-column: 1;
+}
+
+.theory-container > *:nth-child(6){
+	-ms-grid-row: 3;
+	-ms-grid-column: 3;
+}
+
+.theory-container > *:nth-child(7){
+	-ms-grid-row: 3;
+	-ms-grid-column: 5;
+}
+
+.theory-container > *:nth-child(8){
+	-ms-grid-row: 3;
+	-ms-grid-column: 7;
 }
 
 .subtitle{
@@ -199,4 +261,69 @@ article{
     font-size: 14px;
     line-height: 17px;
     font-weight: 300;
+}
+
+.recommend-container{
+    display: grid;
+    grid-column: 2/5;
+    grid-template-columns: repeat(3,1fr) 1.2fr;
+    /* grid-template-rows: 1px; */
+    width: 100%;
+    grid-gap: 10px;
+    /* grid-auto-rows: auto; */
+}
+
+.divider{
+    width: 100%;
+    height: 1px;
+    background: black;
+}
+
+.r-list{
+    grid-column: 4/5;
+    grid-row: 3/8;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.r-list > *{
+    padding: 10px;
+}
+
+ul li{
+    width: 100%; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 19px;
+    line-height: 25px;
+    margin-left: 10px;
+    border-bottom: 0.5px solid gray;
+}
+
+.r-img{
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.r-item{
+    display: flex;
+    flex-direction: column;
+}
+
+.r-item span{
+    padding: 5px;
+    font-size: 12px;
+    color: gray;
+} 
+
+.r-item h2{
+    font-size: 19px;
+    line-height: 22px;
+}
+
+.r-item time{
+    margin-top: 5px;
+    font-size: 0.87rem;
+    color:#999;
 }
